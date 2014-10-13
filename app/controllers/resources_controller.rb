@@ -16,8 +16,7 @@ class ResourcesController < ApplicationController
 	def new
 		@resource = Resource.new
 	end
-	
-	
+
 	def create
 		@resource = Resource.new(resource_params)  
 
@@ -27,7 +26,24 @@ class ResourcesController < ApplicationController
 			render 'new'
 		end
 	end	
+
+
 	
+	def edit
+		@resource = Resource.find(params[:id])
+	end
+
+	def update 
+		@resource = Resource.find(params[:id])
+		if @resource.update(resource_params)
+			redirect_to @resource
+		else
+			render 'edit'
+		end
+	end
+
+
+
 
 	private
 

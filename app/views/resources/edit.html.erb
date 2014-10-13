@@ -1,4 +1,4 @@
-<h1>Add a New Resource</h1>
+<h1>Edit Resource</h1>
 
 
   <% if @resource.errors.any? %>
@@ -14,7 +14,7 @@
  
   
 
-<%= form_for :resource, url: resources_path do |f| %>
+<%= form_for :resource, url: resource_path(@resource), method: :patch do |f| %>
   <p> 
     <%= f.label :url %><br>
     <%= f.text_field :url %>
