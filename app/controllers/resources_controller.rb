@@ -17,12 +17,15 @@ class ResourcesController < ApplicationController
 		@resource = Resource.new
 	end
 	
+	
 	def create
 		@resource = Resource.new(resource_params)  
-		# @resource = Resource.new(params[:resource])
 
-		@resource.save
-		redirect_to @resource
+		if @resource.save
+			redirect_to @resource
+		else
+			render 'new'
+		end
 	end	
 	
 

@@ -1,12 +1,15 @@
-<h1><%= @resource.title %></h1>
+<h1>
+<%= link_to @resource.title.presence || @resource.url, @resource.url %>
+</h1>
 
 
-  <p> URL:
-	<%= @resource.url %>
-  </p>
+<dl>
+	<dt>Comments:</dt>
+	<dd><%= @resource.comment %></dd>
 
-  <p> Comments:
-	<%= @resource.comment %>
-  </p>
- 
+	<dt>URL:</dt>
+	<dd><%= link_to @resource.url, @resource.url %></dd>
+
+	<dt>Created:</dt>
+	<dd><%= localize(@resource.created_at, :format => :long) %></dd>
 

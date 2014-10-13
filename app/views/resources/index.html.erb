@@ -6,7 +6,7 @@
 <ul>
 
 	<% @resources.each do |resource| %>
-		<li><%= link_to resource.title, resource_path(resource) %></li>
+		<li><%= link_to resource.title.presence || resource.url, resource_path(resource) %></li>
 	<% end %>
 		
 </ul>
