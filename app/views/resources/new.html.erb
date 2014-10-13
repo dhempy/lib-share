@@ -1,3 +1,37 @@
 <h1>Add a New Resource</h1>
 
 
+  <% if @resource.errors.any? %>
+  	<div id="error_explanation">
+		<h2>Oops!</h2>
+		<ul>
+			<% @resource.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+  	</div>
+ <% end %>
+ 
+  
+
+
+<%= form_for :resource, url: resources_path do |f| %>
+  <p> 
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+ 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

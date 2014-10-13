@@ -1,0 +1,15 @@
+<h1> Shared Resources</h1>
+
+<%= link_to 'Share a new resource', new_resource_path %> <br />
+
+
+<ul>
+
+	<% @resources.each do |resource| %>
+		<li><%= link_to resource.title, resource_path(resource) %></li>
+	<% end %>
+		
+</ul>
+
+<%= link_to 'Share a new resource', new_resource_path %> <br />
+
