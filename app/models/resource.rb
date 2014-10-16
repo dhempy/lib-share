@@ -4,7 +4,7 @@ require 'open-uri'
 
 class Resource < ActiveRecord::Base
 
-	attr_accessor   :url, :title, :comment
+	#attr_accessor   :url, :title, :comment
 	# attr_accessible :url, :title, :comment
 
 	validates :url, presence: true, length: {minimum: 5 }

@@ -9,6 +9,7 @@ class ResourcesController < ApplicationController
 	
 	def show
 		@resource = Resource.find(params[:id])
+		# @resource.fetch_page
 	end
 	
 

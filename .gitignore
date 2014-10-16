@@ -16,4 +16,7 @@
 /tmp
 
 keys.txt
+/sublime/*
+*sublime-project
+*sublime-workspace
 
