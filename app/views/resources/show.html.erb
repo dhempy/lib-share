@@ -15,4 +15,5 @@
 
 </dl>
 
-<%= link_to 'Edit this resource', edit_resource_path(@resource) %>
+<%= link_to 'Edit', edit_resource_path(@resource) %>
+<%= link_to 'Delete', resource_path(@resource), :method => :delete, data: { confirm: 'Really delete this resource?' } %>

@@ -41,6 +41,13 @@ class ResourcesController < ApplicationController
 			render 'edit'
 		end
 	end
+	
+	def destroy
+		@resource = Resource.find(params[:id])
+		@resource.destroy
+		redirect_to resources_path
+	end
+		
 
 
 
