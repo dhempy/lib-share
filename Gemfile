@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'net/http'
+gem 'open-uri'
+# gem 'net/http'
 gem 'aws-sdk'
 
