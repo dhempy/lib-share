@@ -19,6 +19,7 @@ class ResourcesController < ApplicationController
 
 	def create
 		@resource = Resource.new(resource_params)  
+		@resource.put_to_cache()
 
 		if @resource.save
 			redirect_to @resource
@@ -35,6 +36,7 @@ class ResourcesController < ApplicationController
 
 	def update 
 		@resource = Resource.find(params[:id])
+		@resource.put_to_cache()
 		if @resource.update(resource_params)
 			redirect_to @resource
 		else
@@ -44,6 +46,7 @@ class ResourcesController < ApplicationController
 	
 	def destroy
 		@resource = Resource.find(params[:id])
+		# Todo - purge from cache.
 		@resource.destroy
 		redirect_to resources_path
 	end
