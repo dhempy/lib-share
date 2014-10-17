@@ -15,10 +15,10 @@
 
 </dl>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %>
-<%= link_to 'Delete', resource_path(@resource), :method => :delete, data: { confirm: 'Really delete this resource?' } %>
+<ul>
+	<li><%= link_to 'Edit', edit_resource_path(@resource) %></li>
+	<li><%= link_to 'Delete', resource_path(@resource), :method => :delete, data: { confirm: 'Really delete this resource?' } %></li>
+</ul>
 
 
-Page:<br />
-<%= @resource.page %>
-End page.<br />
+<p><!-- %= @resource.page % --></p>

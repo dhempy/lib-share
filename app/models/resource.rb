@@ -5,6 +5,7 @@ require 'open-uri'
 class Resource < ActiveRecord::Base
 
 	#attr_accessor   :url, :title, :comment
+	attr_accessor :page 
 	# attr_accessible :url, :title, :comment
 
 	validates :url, presence: true, length: {minimum: 5 }
@@ -13,14 +14,7 @@ class Resource < ActiveRecord::Base
 	def fetch_page
 		@page = ''
 
-		# open('http://www.example.com/') {  |f|
-		# open(self.url) {  |f|
 		open(url) {  |f|
-		# open(@url) {  |f|
-		# open(@resource.url) {  |f|
-		# open(Resource.url) {  |f|
-
-
 			# todo: figure out how to slurp entire file in one shot.
 			f.each_line do |line|
 				@page += line
@@ -46,10 +40,15 @@ class Resource < ActiveRecord::Base
 
 		fname = Time.now.to_s
 
+		# Todo: Consider deleting old cached copy, or compare to see if it has changed.
+		# Todo: Handle 404's better.
+
 		object = bucket.objects.create(fname, @page)
 		# object = bucket.objects.create('page',@page)
 		
-		# @comment += "Cached URL: " + object.url_for(:read)
+		## Todo: save URL for later retrieval
+
+		# @comment += "Cached URL: " + object.url_for(:read).to_s 
 		
 	end
 	 

@@ -20,7 +20,7 @@ class ResourcesController < ApplicationController
 
 	def create
 		@resource = Resource.new(resource_params)  
-		@resource.put_to_cache()
+		@resource.put_to_cache
 
 		if @resource.save
 			redirect_to @resource
@@ -37,7 +37,7 @@ class ResourcesController < ApplicationController
 
 	def update 
 		@resource = Resource.find(params[:id])
-		@resource.put_to_cache()
+		@resource.put_to_cache
 		if @resource.update(resource_params)
 			redirect_to @resource
 		else
