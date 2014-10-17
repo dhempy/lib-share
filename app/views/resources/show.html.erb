@@ -8,7 +8,10 @@
 	<dd><%= @resource.comment %></dd>
 
 	<dt>URL:</dt>
-	<dd><%= link_to @resource.url, @resource.url %></dd>
+	<dd>
+		<%= link_to @resource.url, @resource.url %> <br />
+		<code><%= link_to "[Cached]", @resource.cache_url %></code>
+	</dd>
 
 	<dt>Created:</dt>
 	<dd><%= localize(@resource.created_at, :format => :long) %></dd>

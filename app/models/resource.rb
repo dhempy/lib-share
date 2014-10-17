@@ -48,7 +48,7 @@ class Resource < ActiveRecord::Base
 		
 		## Todo: save URL for later retrieval
 
-		# @comment += "Cached URL: " + object.url_for(:read).to_s 
+		@cache_url = object.url_for(:read) 
 		
 	end
 	 
